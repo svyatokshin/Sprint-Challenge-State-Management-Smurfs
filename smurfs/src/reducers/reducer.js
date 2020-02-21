@@ -1,4 +1,4 @@
-import { FETCH_SMURFS, UPDATE_SMURFS, SET_FETCH_ERROR, ADD_SMURF_START, ADD_SMURF_UPDATE, SET_ADD_ERROR } from '../actions';
+import { FETCH_SMURFS, UPDATE_SMURFS, SET_FETCH_ERROR, ADD_SMURF_START, ADD_SMURF_UPDATE, SET_ADD_ERROR, REMOVE_SMURF } from '../actions';
 
 export const initialState = {
     village: [],
@@ -44,6 +44,14 @@ export const reducer = (state = initialState, action) => {
                 isFetchingData: false,
                 error: action.payload
             };
+        case REMOVE_SMURF:
+            return {
+                ...state,
+                isFetchingData: false,
+                village: state.village.filter(smurf => {
+                    return smurf.id !== action.payload;
+                })
+            }
         
         default:
             return state;

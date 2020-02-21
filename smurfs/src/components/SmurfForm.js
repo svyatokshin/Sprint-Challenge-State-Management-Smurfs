@@ -37,7 +37,6 @@ const SmurfForm = props => {
         console.log('this is addNewSmurf hook ', smurf);
         props.addSmurf(smurf);
     };
-
     return (
         <FormDiv>
             <form>

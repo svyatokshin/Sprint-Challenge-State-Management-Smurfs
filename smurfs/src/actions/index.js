@@ -6,6 +6,7 @@ export const SET_FETCH_ERROR = 'SET_FETCH_ERROR';
 export const ADD_SMURF_START = 'ADD_SMURF_START';
 export const ADD_SMURF_UPDATE = 'ADD_SMURF_UPDATE';
 export const SET_ADD_ERROR = 'SET_ADD_ERROR';
+export const REMOVE_SMURF = 'REMOVE_SMURF';
 
 export const fetchSmurfs = () => dispatch => {
     dispatch({ type: FETCH_SMURFS });
@@ -30,4 +31,8 @@ export const addSmurf = smurf => dispatch => {
         .catch(err => {
             dispatch({ type: SET_ADD_ERROR, payload: "Error Adding Smurf"})
         })
+}
+
+export const removeSmurf = (id) => dispatch => {
+    dispatch({ type: REMOVE_SMURF, payload: id})
 }
